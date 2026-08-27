@@ -120,7 +120,5 @@ for i in t:
 
 
 
+# ! find missing number
 
-
-
-    
