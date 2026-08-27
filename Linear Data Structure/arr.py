@@ -50,8 +50,8 @@ max_2=0
 for i in ans:
     if i>max_1:
         max_1=i
-for i in ans:
-    if max_1>max_2:
+
+    if max_1<max_2:
         max_2=max_1
 print(max_1)
 print(max_2)
@@ -80,11 +80,11 @@ for i in range(s):
 
 # print(nums)
 #!Needs to check all the Characters are in Upper case?lower Case
-str="Divya Kumawat"
+t="Divya Kumawat"
 upper_count=0
 lower_count=0
 space=0
-for i in str:
+for i in t:
     if i.isspace():
         continue
     elif i.isupper():
@@ -98,12 +98,27 @@ for i in str:
 
 # ! Needs to check the string contains all value from 0-9 in any order in the string
 
-s="11223344556677889900"
-n=[]
-for i in s:
-    if i in s:
-        n.append(i)
-print(n)
+
+# s = "23344556677889900"
+# n = []
+# flag=0
+# # Collect unique characters
+# for ch in s:
+#     if ch not in n:
+#         n.append(ch)
+
+# # Check digits 0–9
+# for i in range(0, 10):
+#     if str(i) not  in n:   
+#         flag=0
+#         break
+
+# if flag==1:
+#     print(True)
+# else:
+#     print(False)
+
+
 
 
 
