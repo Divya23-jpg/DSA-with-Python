@@ -98,5 +98,14 @@ for i in str:
 
 # ! Needs to check the string contains all value from 0-9 in any order in the string
 
-s="abc12340986567"
-  
+s="11223344556677889900"
+n=[]
+for i in s:
+    if i in s:
+        n.append(i)
+print(n)
+
+
+
+
+    
