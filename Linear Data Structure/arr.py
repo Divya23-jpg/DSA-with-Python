@@ -53,8 +53,8 @@ for i in ans:
 
     if max_1<max_2:
         max_2=max_1
-print(max_1)
-print(max_2)
+# print(max_1)
+# print(max_2)
 
 
 #!2.Try to sort the list without using in build function
@@ -120,5 +120,179 @@ for i in t:
 
 
 
-# ! find missing number
+# ! Two sum leetcode 
+
+# Brute Force 
+def twosum(nums,target):
+    n=len(nums)
+    for i in range(0,n):
+        for  j in range(i+1,n):
+            s=nums[i]+nums[j]
+            if s==target:
+                return [i,j]
+
+# nums=[2,7,11,15]
+# target=9
+
+# print(twosum(nums,target))
+
+
+# ! Single Number
+
+# return single number which is present in array 
+# Input arr=[4,1,2,1,2]
+# output 4
+
+    # ! 1st way
+    # ! usimg in-Built function
+def single(arr):
+    for i in range(0,len(arr)):
+        if arr.count(arr[i]==1):
+            return arr[i]
+
+# arr=[4,1,2,1,2]
+# print(single(arr))
+
+
+    # ! usimg two loops
+def single(arr):
+    count=1
+    for i in arr:
+        count=0
+        for j in arr:
+            if i==j:
+                count+=1
+
+        if count==1:
+            return i
+
+# arr=[4,1,2,1,2]
+# print(single(arr))
+
+
+
+
+# ! 1929. Concatenation of an array
+
+def array_concat(num):
+    ans=[]
+    n=len(nums)
+    for i in range(2):
+        for i in nums:
+            ans.append(i)
+    return ans
+
+
+def array_concat(num):
+    return num*2
+
+
+    
+nums=[1,2,3]
+print(array_concat(nums))
+
+
+
+# ! 268 missing number
+
+# ! 1st way
+def missing_number(nums):
+    n=len(nums)
+    for i in range(0,n+1):
+        if i not in nums:
+            return i
+nums=[3,0,1]
+print(missing_number(nums))
+
+
+
+# ! 2nd way
+def missing_number(nums):
+    n=len(nums)
+    s=sum(nums)
+    total=n*(n+1)//2
+    return total-s
+
+# nums=[3,0,1]
+# print(missing_number(nums))
+
+
+
+#! 1550 Three consicutive Odds
+
+# ! 1st way
+def odd_consecutive(arr):
+    count=0
+    for i in arr:
+        if i%2!=0:
+            count+=1
+            if count==3:
+                return True
+        else:
+            count=0
+
+    return False
+
+
+# arr=[2,6,4,1]
+# print(odd_consecutive(arr))
+
+# ! 2nd way
+def odd_consecutive(arr):
+    count=0
+    n=len(nums)
+    for i in range(0,n-2):
+        if arr[i]%2 != 0 and arr[i+1]%2 != 0 and arr[i+2]%2 != 0:
+            return True
+    
+    return False
+
+
+arr=[2,6,4,1]
+print(odd_consecutive(arr))
+
+
+
+#! Matrix
+
+mat=[
+    [1,2,3],
+    [3,4,5],
+    [7,8,9]
+]
+
+
+# row=len(mat)
+# col=len(mat[0])
+# for i in range(row):
+#     for j in range(col):
+#         print(mat[i][j],end=" ")
+
+# print('\n')
+
+# ! Row To Column
+
+def rows_to_col(mat):
+    
+    row=len(mat)
+    col=len(mat[0])
+    ans=[]
+    for j in range(col):
+        cur=[]
+        for i in range(row):
+            cur.append(mat[i][j])
+
+        ans.append(cur)
+
+    return ans
+
+
+mat=[
+    [1,2,3],
+    [3,4,5],
+    [7,8,9]
+]
+
+print(rows_to_col(mat))
+
 
