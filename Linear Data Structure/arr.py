@@ -189,7 +189,7 @@ def array_concat(num):
 
     
 nums=[1,2,3]
-print(array_concat(nums))
+# print(array_concat(nums))
 
 
 
@@ -202,7 +202,7 @@ def missing_number(nums):
         if i not in nums:
             return i
 nums=[3,0,1]
-print(missing_number(nums))
+# print(missing_number(nums))
 
 
 
@@ -249,7 +249,7 @@ def odd_consecutive(arr):
 
 
 arr=[2,6,4,1]
-print(odd_consecutive(arr))
+# print(odd_consecutive(arr))
 
 
 
@@ -293,6 +293,85 @@ mat=[
     [7,8,9]
 ]
 
-print(rows_to_col(mat))
+# print(rows_to_col(mat))
 
 
+# leetcode 1089  Duplicates Zero
+
+arr = [1,0,2,3,0,4,5,0]
+n=len(arr)
+i=0
+while i<n:
+    if arr[i]==0:
+        arr.pop(n-1)
+
+        arr.insert(i,0)
+   
+        i+=1
+
+    i+=1
+
+# print("Final arr",arr)
+
+
+# !Leetcode 912 Sort array [we use insertion sort]
+
+nums=[5,2,3,1]
+n=len(nums)
+for i in range(n):
+    min_index=i
+
+    for j in range(i+1,n):
+        if nums[j]<nums[min_index]:
+            min_index=j
+
+    nums[i],nums[min_index]=nums[min_index],nums[i]
+
+# print(nums)
+
+#! leetcode 485. Max Consecutive Ones
+
+nums = [1,1,0,1,1,1]
+count=0
+ans=0
+for i in nums:
+    if i==1:
+        count+=1
+        ans=max(count,ans)
+    else:
+        count=0
+
+# print(ans)
+
+
+# ! Leetcode 1078. Occurrences After Bigram
+
+text = "alice is a good girl she is a good student"
+first = "a"
+second = "good"
+
+arr=text.split(" ")
+n=len(arr)
+ans=[]
+for i in range(0,n-2):
+    if arr[i]==first and arr[i+1]==second:
+        ans.append(arr[i+2])
+
+# print(ans)
+
+
+# ! Leetcode 1446. Consecutive Characters
+s = "abbcccddddeeeeedcba"
+count=0
+ans=0
+n=len(s)
+for i in range(n-1):
+    if s[i]==s[i+1]:
+        count+=1
+
+    else:
+        count=1
+
+    ans=max(ans,count)
+
+print(ans)
