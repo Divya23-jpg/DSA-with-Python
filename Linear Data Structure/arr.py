@@ -463,8 +463,68 @@ n=len(arr)
 for i in range(n-1):
     if arr[i]<arr[i+1]:
         index=i+1
-print(index)
+# print(index)
 
 
+# ! 2nd way
+
+arr=[0,1,0]
+n=len(arr)
+count=0
+for i in range(n-1):
+    if arr[i]>arr[i-1] and arr[i]>arr[i+1]:
+        count+=1
+
+# print(count)
+
+# ! 2124
+s = "aaabbb"
+lastA=-1
+n=len(s)
+for i in range(0,n):
+    if s[i]=='a':
+        lastA=i
+firstB=n
+for i in range(0,n):
+    if s[i]=='b':
+        firstB=i
+        break
+# print(lastA < firstB)
+        
+# print(s.rfind("a")<s.find("b") or s.find("b")==-1)
+
+
+
+# ! 771
+jewels = "aA"
+stones = "aAAbbbb"
+count=0
+for i in stones:
+    if i in jewels:
+        count+=1
+      
+# print(count)
+
+
+# ! 38. Count and Say
+n = 4
+cur="1"
+for i in range(n-1):
+    next=""
+    count=1
+    N=len(cur)
+    for i in range(1,N):
+        if cur[i]==cur[i-1]:
+            count+=1
+
+        else:
+            next+=str(count)+str(cur[i-1])
+            count=1
+
+
+    next+=str(count)+str(cur[N-1])
+    cur=next
+
+print(cur)
 # ! 229 Majority Element n//3
 
