@@ -293,7 +293,7 @@ mat=[
     [7,8,9]
 ]
 
-print(rows_to_col(mat))
+# print(rows_to_col(mat))
 
 
 # ! leetcode 1089  Duplicates Zero
@@ -372,5 +372,99 @@ for i in range(n-1):
         count=1
     ans=max(ans,count)
 
-print(ans)
+# print(ans)
+
+#! 2937 Make Three string equal
+
+
+
+
+
+
+
+
+# ! 169 Majority Element
+
+
+nums=[2,2,1,1,1,2,2]
+count=0
+ans=0
+n=len(nums)
+for i in range(n):
+    if count==0:
+        ans=nums[i]
+        count+=1
+
+    elif nums[i]==ans:
+        count+=1
+    else:
+        count-=1
+
+# print(ans)
+# print(num)
+
+# !Leetcode 344. Revers the Array Without Built in Function
+
+s=['h','e','l','l','o']
+n=len(s)
+l=0
+r=n-1
+while(l<r):
+    s[l],s[r]=s[r],s[l]
+    l+=1
+    r-=1
+
+# print(s)
+
+
+# ! Leetcode 189 Rotate Array
+    # !1st Way
+nums=[1,2,3,4,5,6,7]
+k=3
+# n=len(nums)
+# for i in range(k):
+#     val=nums.pop(n-1)
+#     nums.insert(0,val)
+
+# print(nums)
+
+    # !2nd Way
+
+# def reverse(start,end):
+#     while start<end:
+#         nums[start],nums[end]=nums[start],nums[end]
+#         start+=1
+#         end-=1
+
+
+# N=len(nums)
+# k=k%N
+# reverse(0,N-1)
+# reverse(0,k-1)
+# reverse(k,N-1)
+
+# print(nums)
+
+    #! 3rd way
+
+N=len(nums)
+k=k%N
+arr=nums[N-k:N]+nums[0:N-k]
+for i in range(N):
+    nums[i]=arr[i]
+
+# print(nums)
+
+
+# ! Leetcode 852
+
+arr=[0,1,0]
+n=len(arr)
+for i in range(n-1):
+    if arr[i]<arr[i+1]:
+        index=i+1
+print(index)
+
+
+# ! 229 Majority Element n//3
 
