@@ -293,12 +293,12 @@ mat=[
     [7,8,9]
 ]
 
-# print(rows_to_col(mat))
+print(rows_to_col(mat))
 
 
-# leetcode 1089  Duplicates Zero
+# ! leetcode 1089  Duplicates Zero
 
-arr = [1,0,2,3,0,4,5,0]
+arr = [1,0,2,3,0,4,5]
 n=len(arr)
 i=0
 while i<n:
@@ -362,16 +362,15 @@ for i in range(0,n-2):
 
 # ! Leetcode 1446. Consecutive Characters
 s = "abbcccddddeeeeedcba"
-count=0
-ans=0
+count=1
+ans=1
 n=len(s)
 for i in range(n-1):
     if s[i]==s[i+1]:
         count+=1
-
     else:
         count=1
-
     ans=max(ans,count)
 
 print(ans)
+
