@@ -383,25 +383,6 @@ for i in range(n-1):
 
 
 
-# ! 169 Majority Element
-
-
-nums=[2,2,1,1,1,2,2]
-count=0
-ans=0
-n=len(nums)
-for i in range(n):
-    if count==0:
-        ans=nums[i]
-        count+=1
-
-    elif nums[i]==ans:
-        count+=1
-    else:
-        count-=1
-
-# print(ans)
-# print(num)
 
 # !Leetcode 344. Revers the Array Without Built in Function
 
@@ -525,6 +506,82 @@ for i in range(n-1):
     next+=str(count)+str(cur[N-1])
     cur=next
 
-print(cur)
+# print(cur)
+
+
+
+
+
+# ! 169 Majority Element
+
+# ! 1st way bruteforce approach
+"""
+take a element one by one from the array and count the frequency in the whole array
+"""
+
+# ? Brute force 
+
+# ! Complexity will be : O(N*N)
+# def majority_bruteForce(nums):
+#     n=len(nums)
+#     for i in range(n):
+#         freq=0
+#         for j in range(n):
+#             if nums[i]==nums[j]:
+#                 freq+=1
+
+#         if freq>n//2:
+#             return nums[i]
+
+# print(majority_bruteForce(nums))
+
+# ? Optimized
+# ! Complexity will be : O(nlong)
+def majority_optimized(nums):
+    nums.sort()
+    freq=1
+    ans=nums[0]
+    n=len(nums)
+    for i in range(n):
+        if nums[i]==nums[i-1]:
+            freq+=1
+
+        else:
+            freq=1
+            ans=nums[i]
+
+    
+        if freq>n//2:
+            return ans
+
+# nums=[2,2,1,1,1,2,2]
+# print(majority_optimized(nums))
+
+# ! Mrroe's Voting algo
+def majority_more_optimized(nums):
+    count=0
+    ans=0
+    n=len(nums)
+    for i in range(n):
+        if count==0:
+            ans=nums[i]
+            count=1
+
+        elif ans==nums[i]:
+            count+=1
+
+        else:
+            count-=1
+
+    return ans
+
+nums=[2,2,1,1,1,2,2]
+print(majority_more_optimized(nums))
+
+
+
+
+
+
 # ! 229 Majority Element n//3
 
