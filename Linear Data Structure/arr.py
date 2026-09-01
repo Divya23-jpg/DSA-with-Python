@@ -1,7 +1,7 @@
-# arr=[2,4,3,1]
-# ans=[]
-# for i in reversed(arr):
-#     ans.append(i)
+arr=[2,4,3,1]
+ans=[]
+for i in reversed(arr):
+    ans.append(i)
 
 # print(arr==sorted(ans))
 
@@ -9,9 +9,9 @@
  
 
 
-# def algotutor(n):
-#     for i in range(n):
-#         print("Divya")
+def algotutor(n):
+    for i in range(n):
+        print("Divya")
 
 
 # algotutor(3)
@@ -19,24 +19,24 @@
 
 
 
-# class Solution:
-#     @staticmethod
-#     def singleNumber(nums: list[int]) -> int:
-#         result = 0
+class Solution:
+    @staticmethod
+    def singleNumber(nums: list[int]) -> int:
+        result = 0
         
-#         # Iterate through all 32 possible bit positions
-#         for i in range(32):
-#             bit_sum = 0
-#             bit_mask = 1 << i
-#             for num in nums:
-#                 if num & bit_mask:
-#                     bit_sum += 1
+        # Iterate through all 32 possible bit positions
+        for i in range(32):
+            bit_sum = 0
+            bit_mask = 1 << i
+            for num in nums:
+                if num & bit_mask:
+                    bit_sum += 1
             
-#             if bit_sum % 3 != 0:
-#                 if i == 31: 
-#                     result -= bit_mask
-#                 else:
-#                     result |= bit_mask
+            if bit_sum % 3 != 0:
+                if i == 31: 
+                    result -= bit_mask
+                else:
+                    result |= bit_mask
                     
 #         return result
 
@@ -576,7 +576,7 @@ def majority_more_optimized(nums):
     return ans
 
 nums=[2,2,1,1,1,2,2]
-print(majority_more_optimized(nums))
+# print(majority_more_optimized(nums))
 
 
 
@@ -586,4 +586,76 @@ print(majority_more_optimized(nums))
 # ! 229 Majority Element n//3
 
 
+nums=[5,0,3,7,1,0,100]
+n=len(nums)
+res=[]
+zeroes=nums.count(0)
+for i in range(n):
+    if nums[i]!=0:
+        res.append(nums[i])
 
+
+
+# for _ in range(zeroes):
+#     res.append(0)
+
+res.extend([0] * zeroes)
+# print(res)
+
+
+
+
+from collections import Counter
+
+def top_k_events(events, k):
+    # Count frequency of each event ID
+    freq = Counter(events)
+    
+    # Get k most common event IDs
+    result = [event for event, _ in freq.most_common(k)]
+
+    return result
+
+# Example usage
+# print(top_k_events([1,1,1,2,2,3], 2)) 
+
+
+
+# ! 11.Container with most water
+
+h=[1,8,6,2,5,4,8,3,7]
+
+l=0
+r=len(h)-1
+max_water=0
+while l<r:
+    width=r-l
+    height=min(h[l],h[r])
+    area=width*height
+
+    max_water=max(max_water,area)
+
+    if h[l]<h[r]:
+        l+=1
+
+    else:
+        r-=1
+
+# print(max_water)
+
+
+
+
+
+# Leetcode 53.Subarray sum using kadans algorithm
+arr=[-2,1,-3,4,-1,2,1,-5,4]
+
+current=0
+max_sum=nums[0]
+for i in nums:
+    current+=i
+    max_sum=max(max_sum,current)
+    if current<0:
+        current=0
+
+# print(max_sum)
