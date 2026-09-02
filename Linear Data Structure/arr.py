@@ -733,61 +733,32 @@ s = "babad"
 Generate sub arrays then check each subarray is valid or not
 
 """
-nums = [1,2,3,4]
-n=len(nums)
-count=0
+def numberOfArithmeticSlices(nums):
+    N = len(nums)
+    """
+        We generate all subarrays, and then we will check
+        each subarray is valid or not
+    """
+    count = 0
+    def isValid(start, end):
+        flag = True
+        check = nums[start+1] - nums[start]
+        for i in range(start+1, end+1):
+            if nums[i] - nums[i-1] != check:
+                flag = False
+                break
+        return flag
+
+    for i in range(0, N):
+    #i = 0, j = 2 --> [0,1,2]
+        for j in range(i+2,N):
+            if isValid(i, j):
+                count += 1
+    return count
 
 
-
-def is_valid(arr):
-    m=len(arr)
-    flag=True
-    check=nums[1]-nums[0]
-    for i in range(0,m):
-        if nums[i]-nums[i-1] !=check:
-            flag=False
-            break
-
-    return flag
-
-
-
-
-for i in range(0,n):
-    for j in range(i+2,n):
-        if is_valid(nums[i:j+1]):
-            count+=1
-
-
-
-
-
-# print(count)
-
-
-        # N = len(nums)
-        # """
-        # We generate all subarrays, and then we will check
-        # each subarray is valid or not
-        # """
-        # count = 0
-        # def isValid(start, end):
-        #     flag = True
-        #     check = nums[start+1] - nums[start]
-        #     for i in range(start+1, end+1):
-        #         if nums[i] - nums[i-1] != check:
-        #             flag = False
-        #             break
-        #     return flag
-
-        # for i in range(0, N):
-        #     #i = 0, j = 2 --> [0,1,2]
-        #     for j in range(i+2,N):
-        #         if isValid(i, j):
-        #             count += 1
-        # return count
-
-
+nums=[1,2,3,4]
+print(numberOfArithmeticSlices(nums))
 # ! 1470. Shuffle the Array
 
 
@@ -846,4 +817,4 @@ def heightChecker(heights):
     return count
 
 heights = [1,1,4,2,1,3]
-print(heightChecker(heights))
+# print(heightChecker(heights))
