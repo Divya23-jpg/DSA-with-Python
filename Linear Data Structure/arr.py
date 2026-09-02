@@ -659,3 +659,37 @@ for i in nums:
         current=0
 
 # print(max_sum)
+
+# def encoded(arr):
+#     l=""
+#     n=len(arr)
+#     for i in arr:
+#         l+=str(len(i))
+#         l+="/:"
+#         l+=i
+#     return l
+
+
+# arr=["Hello", "World"]
+# print(encoded(arr))
+
+
+def decode(string):
+    t=""
+    for i in string:
+        if i.isalpha():
+            t+=i
+
+    return t
+
+            
+
+
+
+# string="5/:Hello5/:World"
+# print(decode(string))
+
+
+
+#! Leetcode 5. Longest Palindromic Substring
+
