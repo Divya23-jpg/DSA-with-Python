@@ -804,5 +804,46 @@ def shuffle(nums,n):
 nums = [2,5,1,3,4,7]
 n = 3
 
-print(shuffle(nums,n))
+# print(shuffle(nums,n))
 
+
+# ! 2022. Convert 1D Array Into 2D Array
+
+
+def construct2DArray(original,n,m):
+    ans = []
+    N = len(original)
+    if n*m != N:
+        return ans
+            
+    index = 0
+    for i in range(0,m):
+        cur = []
+        for j in range(0, n):
+            cur.append(original[index])
+            index += 1
+        ans.append(cur)
+    return ans
+
+original = [1,2,3,4]
+m = 2
+n = 2
+
+# print(construct2DArray(original,n,m))
+
+
+
+# ! 1051. Height Checker
+def heightChecker(heights):
+    n=len(heights)
+    expected=heights[0:n]
+    expected.sort()
+    count=0
+    for i in range(0,n):
+        if expected[i]!=heights[i]:
+            count+=1
+
+    return count
+
+heights = [1,1,4,2,1,3]
+print(heightChecker(heights))
