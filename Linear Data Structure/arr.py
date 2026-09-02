@@ -693,3 +693,115 @@ def decode(string):
 
 #! Leetcode 5. Longest Palindromic Substring
 
+"""We know to generate all substring . we just check each substring is plaindrome or not
+and return the longest palindrome  substring"""
+
+
+
+def longestPalindrome(s): 
+    """
+        We know how to generate all substring
+        We just check each substring is panlindrome or not
+        and return longest (panlindrome) substring
+        """
+    N = len(s)
+    def isPanlindrome(start, end):
+        flag = True
+        while start < end:
+            if s[start] != s[end]:
+                flag = False
+                break
+            start += 1
+            end -= 1
+        return flag
+
+    ans = ""
+    for i in range(0, N):
+        for j in range(i, N):
+            if len(ans) < (j-i+1) and isPanlindrome(i,j):
+                ans = s[i:j+1]
+    return ans
+
+s = "babad"
+# print(longestPalindrome(s))
+
+
+
+# ! 413. Arithmetic Slices
+
+"""
+Generate sub arrays then check each subarray is valid or not
+
+"""
+nums = [1,2,3,4]
+n=len(nums)
+count=0
+
+
+
+def is_valid(arr):
+    m=len(arr)
+    flag=True
+    check=nums[1]-nums[0]
+    for i in range(0,m):
+        if nums[i]-nums[i-1] !=check:
+            flag=False
+            break
+
+    return flag
+
+
+
+
+for i in range(0,n):
+    for j in range(i+2,n):
+        if is_valid(nums[i:j+1]):
+            count+=1
+
+
+
+
+
+# print(count)
+
+
+        # N = len(nums)
+        # """
+        # We generate all subarrays, and then we will check
+        # each subarray is valid or not
+        # """
+        # count = 0
+        # def isValid(start, end):
+        #     flag = True
+        #     check = nums[start+1] - nums[start]
+        #     for i in range(start+1, end+1):
+        #         if nums[i] - nums[i-1] != check:
+        #             flag = False
+        #             break
+        #     return flag
+
+        # for i in range(0, N):
+        #     #i = 0, j = 2 --> [0,1,2]
+        #     for j in range(i+2,N):
+        #         if isValid(i, j):
+        #             count += 1
+        # return count
+
+
+# ! 1470. Shuffle the Array
+
+
+def shuffle(nums,n):
+    x=nums[0:n]
+    y=nums[n:2*n]
+    ans=[]
+    for i in range(0,n):
+        ans.append(x[i])
+        ans.append(y[i])
+    return ans
+
+
+nums = [2,5,1,3,4,7]
+n = 3
+
+print(shuffle(nums,n))
