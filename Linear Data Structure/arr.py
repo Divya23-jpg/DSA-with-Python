@@ -129,12 +129,55 @@ def twosum(nums,target):
         for  j in range(i+1,n):
             s=nums[i]+nums[j]
             if s==target:
-                return [i,j]
+                return sorted([nums[i],nums[j]])
+
+def two_sum_optimized(nums,target):
+    seen={}
+    for i ,num in enumerate(nums):
+        com=target-num
+        if com in seen:
+            return [seen[com],i]
+        seen[num]=i
+
+            
+
+
 
 # nums=[2,7,11,15]
-# target=9
+nums=[7,-3,2,7,5,-3,10,0,2,8,5,-8,3,12,-3]
+target=9
 
 # print(twosum(nums,target))
+
+
+# ! Twu sum but differenet que
+
+
+def Two_sum_transaction(nums,target):
+    pair=set()
+    seen=set()
+
+
+    for i in nums:
+        com=target-i
+        if com in seen:
+       
+            pair.add(tuple(sorted([i, com])))
+            
+
+        seen.add(i)
+
+
+    return [list(p) for p in sorted(pair)]
+
+
+nums=[7,-3,2,7,5,-3,10,0,2,8,5,-8,3,12,-3]
+target=9
+print(Two_sum_transaction(nums,target))
+
+
+
+
 
 
 # ! Single Number
@@ -818,3 +861,177 @@ def heightChecker(heights):
 
 heights = [1,1,4,2,1,3]
 # print(heightChecker(heights))
+
+
+# ! 2315. Count Asterisks
+def countAsterisks(s):
+    """
+        l|*e*et|c**o|*de|
+        l,*e*et,c**o,*de
+        *e*et,*de
+        l,c**o ---> 2
+
+    """
+    def countAstrics(ss):
+        return ss.count("*")
+
+    arr=s.split("|")
+
+    n=len(arr)
+    count=0
+    for i in range(0,n,2):
+        count+=countAstrics(arr[i])
+
+    return count
+
+
+s = "l|*e*et|c**o|*de|"
+print(countAsterisks(s))
+
+
+# ! 1242. Valid Anagram
+
+
+
+# ! 1796. Second Largest Digit in a String
+def secondHighest(s):
+    unique=set()
+    for i in s:
+        if i.isdigit():
+            unique.add(int(i))
+
+    maxV=-1
+    secMax=-1
+    for i in unique:
+        if i>maxV:
+            secMax=maxV
+            maxV=i
+
+        elif i>secMax:
+            secMax=i
+
+                
+    return secMax
+        
+# !2000. Reverse Prefix of Word
+
+# def reversePrefix(word, ch):
+#     word=list(word)
+
+#     def reverse(start,end):
+#         while start<end:
+#         word[start],word[end]=word[end],word[start]
+#         start+=1
+#         end-=1
+
+#     index=-1
+#     n=len(word)
+#     for i in range(0,n):
+#         if word[i]==ch:
+#             index=i
+#             break
+
+#     reverse(0,index)
+#     return "".join(word)
+
+# ! 6. Zigzag Conversion
+
+def convert(numRows):
+    if numRows == 1:
+        return s
+    arr = []
+    for i in range(numRows):
+        arr.append([])
+
+
+    index,dir = 0, 1
+    for v in s:
+        arr[index].append(v)
+        index += dir
+        if index == numRows:
+            dir = -1
+            index = numRows - 2
+        elif index == -1:
+            dir = 1
+            index = 1
+
+    ans = ""
+    for v in arr:
+        ans += "".join(v)
+    return ans
+
+# ! 118. Pascal's Triangle
+def generate(numRows):
+    arr=[]
+    for i in range(0,numRows):
+        curr=[]
+        for j in range(0,i+1): 
+            if j==0 or j==i:
+                curr.append(1)
+            else:
+                curr.append(arr[i-1][j-1] + arr[i-1][j])
+
+        arr.append(curr)
+
+    return arr
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def prepend(self, data): # added a new node at the beginning of the list
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+    def append(self, data): # added a new node at the end of the list
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+
+
+
+    def delete_value(self, value):
+        if not self.head:
+            return
+        if self.head.data == value:
+            self.head = self.head.next
+            return
+        current_node = self.head
+        while current_node.next:
+            if current_node.next.data == value:
+                current_node.next = current_node.next.next
+                return
+            current_node = current_node.next
+        print("Value not found in the list.")
+
+    def display(self):
+        elements = []
+        current_node = self.head
+        while current_node:
+            elements.append(current_node.data)
+            current_node = current_node.next
+        print(" -> ".join(map(str, elements)))
+
+list = LinkedList()
+list.append(1)
+list.append(2)
+list.append(3)
+list.display()  # Output: 1 -> 2 -> 3
+list.prepend(0)
+list.display()  # Output: 0 -> 1 -> 2 -> 3
+list.delete_value(2)
+list.display()  # Output: 0 -> 1 -> 3
+
+
