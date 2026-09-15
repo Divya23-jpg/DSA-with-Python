@@ -1024,14 +1024,64 @@ class LinkedList:
             current_node = current_node.next
         print(" -> ".join(map(str, elements)))
 
-list = LinkedList()
-list.append(1)
-list.append(2)
-list.append(3)
-list.display()  # Output: 1 -> 2 -> 3
-list.prepend(0)
-list.display()  # Output: 0 -> 1 -> 2 -> 3
-list.delete_value(2)
-list.display()  # Output: 0 -> 1 -> 3
+# list = LinkedList()
+# list.append(1)
+# list.append(2)
+# list.append(3)
+# list.display()  # Output: 1 -> 2 -> 3
+# list.prepend(0)
+# list.display()  # Output: 0 -> 1 -> 2 -> 3
+# list.delete_value(2)
+# list.display()  # Output: 0 -> 1 -> 3
 
 
+
+
+# !Maximum find
+arr=[3,4,5,6,2]
+maxi=arr[0]
+for i in range(1,len(arr)):
+    if arr[i]>maxi:
+        maxi=arr[i]
+
+print("Maximum :",maxi)
+
+# !Minimum
+arr=[3,4,5,6,2]
+mini=arr[0]
+for i in range(1,len(arr)):
+    if mini>arr[i]:
+        mini=arr[i]
+
+print("Minimum :",mini)
+
+# ! Sum of all
+
+arr=[3,4,5,6,2]
+sum=0
+for i in range(len(arr)):
+    sum+=arr[i]
+
+print("sum of all: ",sum)
+
+
+# ! Leetcode 344
+s = ["h","e","l","l","o"]
+print(s[::-1])
+
+#  Optimal
+n=len(s)
+l=0
+r=n-1
+while(l<r):
+    s[l],s[r]=s[r],s[l]
+    l+=1
+    r-=1
+
+print(s)
+
+
+# ! 1752 
+# nums = [3,4,5,1,2]
+# s= sorted(nums)
+# for i in nums:
