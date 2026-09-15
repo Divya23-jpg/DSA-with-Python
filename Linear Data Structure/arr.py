@@ -1099,13 +1099,16 @@ def check(a):
 
 # ! 26. Remove Duplicates from Sorted Array
 
-    #  One way
-print(len(set(nums)))
-    # 2nd way
-
 def removeduplicates(self,a):
     if len(a)==0:
         return 0
 
+    pos=1
+    for i in range(1,len(a)):
+        if a[i]!=a[i+1]:
+            a[pos]=a[i]
+            pos+=1
+
+    return pos
 a=[0,0,1,1,1,2,2,3,3,4]
-removeduplicates(a)
+print(removeduplicates(a))
