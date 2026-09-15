@@ -1044,7 +1044,7 @@ for i in range(1,len(arr)):
     if arr[i]>maxi:
         maxi=arr[i]
 
-print("Maximum :",maxi)
+# print("Maximum :",maxi)
 
 # !Minimum
 arr=[3,4,5,6,2]
@@ -1053,7 +1053,7 @@ for i in range(1,len(arr)):
     if mini>arr[i]:
         mini=arr[i]
 
-print("Minimum :",mini)
+# print("Minimum :",mini)
 
 # ! Sum of all
 
@@ -1062,12 +1062,12 @@ sum=0
 for i in range(len(arr)):
     sum+=arr[i]
 
-print("sum of all: ",sum)
+# print("sum of all: ",sum)
 
 
 # ! Leetcode 344
 s = ["h","e","l","l","o"]
-print(s[::-1])
+# print(s[::-1])
 
 #  Optimal
 n=len(s)
@@ -1078,10 +1078,34 @@ while(l<r):
     l+=1
     r-=1
 
-print(s)
+# print(s)
 
 
 # ! 1752 
-# nums = [3,4,5,1,2]
-# s= sorted(nums)
-# for i in nums:
+
+def check(a):
+    count=0
+    for i in range(0,len(a)):
+        if a[i]>a[(i+1)%len(a)]:
+            count+=1
+    if(count<=1):
+        return True
+
+    return False
+
+# a = [3,4,5,1,2]
+# print(check(a))
+
+
+# ! 26. Remove Duplicates from Sorted Array
+
+    #  One way
+print(len(set(nums)))
+    # 2nd way
+
+def removeduplicates(self,a):
+    if len(a)==0:
+        return 0
+
+a=[0,0,1,1,1,2,2,3,3,4]
+removeduplicates(a)
