@@ -1164,6 +1164,33 @@ def findKthLargest(nums,k):
 
 nums = [3,2,1,5,6,4]
 k = 2
-print(findKthLargest(nums,k))
+# print(findKthLargest(nums,k))
 
 
+
+
+def removeElement(nums,val): 
+    for i in range(len(nums)):
+        if val in nums:
+            nums.remove(val)
+
+    return len(nums)
+
+nums = [0,1,2,2,3,0,4,2]
+val = 2
+
+# print(removeElement(nums,val))
+
+
+# ! 1.Two sum
+def two_Sum(nums,target):
+    seen={}
+    for i , num in enumerate(nums):
+        c=target-num
+        if c in seen:
+            return [seen[c],i]
+        seen[num]=i
+
+nums = [2,7,11,15]
+target = 9
+print(two_Sum(nums,target))
