@@ -1121,18 +1121,49 @@ def rotate(nums,k):
     k=k%n
     nums[:] = nums[-k:]+nums[:-k]
 
-nums = [1,2,3,4,5,6,7], k = 3
+nums = [1,2,3,4,5,6,7]
+k = 3
 
 # print(rotate(nums,k))
 
 
 
 # ! 215. Kth Largest Element in an Array
+"""Its easy but cannt do because que says without Sorting"""
+        
+        
+# nums.sort(reverse=True)
+# return nums[k-1]
 
 """
-Use Heap becaues it Quikly get the smallest or largest element
+Use Heap becaues it Quikly get the smallest or largest element because it automatically brings maximum or minimum element in the TOP
 min heap: Smallest element easily available
 max hip: largest element easily available
 
+Heap is also called Priority Que
+Default heap is min heap in Python
+
+Use min heap when You acess large element and vice versa
 """
-        
+
+import heapq
+# Add Element
+# h=[]
+# heapq.heappush(h,5)
+# heapq.heappop()
+
+def findKthLargest(nums,k):
+    min_heap=[]
+    for i in nums:
+        heapq.heappush(min_heap,i)  #Add element untill the len(min_heap)<k
+        if len(min_heap)>k:
+            heapq.heappop(min_heap)
+
+    return min_heap[0]
+
+
+nums = [3,2,1,5,6,4]
+k = 2
+print(findKthLargest(nums,k))
+
+
