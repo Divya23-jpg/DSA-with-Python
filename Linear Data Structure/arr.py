@@ -1111,4 +1111,20 @@ def removeduplicates(self,a):
 
     return pos
 a=[0,0,1,1,1,2,2,3,3,4]
-print(removeduplicates(a))
+# print(removeduplicates(a))
+
+
+# ! 186 Roted array
+
+def rotate(nums,k):
+    n=len(nums)
+    k=k%n
+    nums[:] = nums[-k:]+nums[:-k]
+
+nums = [1,2,3,4,5,6,7], k = 3
+
+# print(rotate(nums,k))
+
+
+
+# ! 215. Kth Largest Element in an Array
