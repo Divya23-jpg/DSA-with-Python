@@ -1128,3 +1128,11 @@ nums = [1,2,3,4,5,6,7], k = 3
 
 
 # ! 215. Kth Largest Element in an Array
+
+"""
+Use Heap becaues it Quikly get the smallest or largest element
+min heap: Smallest element easily available
+max hip: largest element easily available
+
+"""
+        
