@@ -1022,7 +1022,7 @@ class LinkedList:
         while current_node:
             elements.append(current_node.data)
             current_node = current_node.next
-        print(" -> ".join(map(str, elements)))
+        # print(" -> ".join(map(str, elements)))
 
 # list = LinkedList()
 # list.append(1)
@@ -1193,4 +1193,4 @@ def two_Sum(nums,target):
 
 nums = [2,7,11,15]
 target = 9
-print(two_Sum(nums,target))
+# print(two_Sum(nums,target))
