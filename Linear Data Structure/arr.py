@@ -1194,3 +1194,90 @@ def two_Sum(nums,target):
 nums = [2,7,11,15]
 target = 9
 # print(two_Sum(nums,target))
+
+
+# ! 88.Merge array
+
+def merge(a1,a2,m,n):
+    i=m-1
+    j=n-1
+    k=m+n-1
+    while(i>=0 and j>=0):
+        if a1[i]>a2[j]:
+            a1[k]=a1[i]
+            i-=1
+        else:
+            a1[k]=a2[j]
+            j-=1
+            
+        k-=1
+
+    while j>=0:
+        a1[k]=a2[j]
+        j-=1
+        k-=1
+
+    return a1
+a1 = [1,2,3,0,0,0] 
+m = 3
+a2 = [2,5,6]
+n = 3
+# print(merge(a1,a2,m,n))
+
+
+
+# ! 121. Best Time to Buy and Sell Stock
+
+def maxProfit(a):
+    mini=a[0]
+    profit=0
+    maxP=0
+    for i in range(0,len(a)):
+        if(a[i]<mini):
+            mini=a[i]
+        else:
+            profit=a[i]-mini
+            maxP=max(maxP,profit)
+
+    return maxP
+
+a = [7,1,5,3,6,4]
+print(maxProfit(a))
+
+
+# ! 977 squares of a sorted array
+def sortedSquares(self, a):
+    n=len(a)
+    res=[0]*n
+    left=0
+    right=n-1
+    for i in range(n-1,-1,-1):
+        if abs(a[left])> abs(a[right]):
+            res[i]=a[left]*a[left]
+            left+=1
+        else:
+            res[i]=a[right]*a[right]
+            right-=1
+    return res
+
+nums = [-4,-1,0,3,10]
+# print(sortedSquares(nums))
+# ! 905 sort array by parity
+def sortArrayByParity(nums):
+    n=len(nums)
+    l=0
+    r=n-1
+    while(l<r):
+        while(l<r and nums[l]%2==0):
+            l+=1
+                
+        while(l<r and nums[r]%2==1):
+            r-=1
+
+        if l<r:
+            nums[l],nums[r]=nums[r],nums[l]
+    return nums
+
+
+nums = [3,1,2,4]
+print(sortArrayByParity(nums))
