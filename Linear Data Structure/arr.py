@@ -1281,7 +1281,8 @@ def sortArrayByParity(nums):
 
 nums = [3,1,2,4]
 print(sortArrayByParity(nums))
-# 643 Maximum Average Subarray I
+# !643 Maximum Average Subarray I
+
 # Brute force
 # def findMaxAverage(nums,k):
 #     n=len(nums)
@@ -1294,7 +1295,7 @@ print(sortArrayByParity(nums))
 
 #     return maxs/k
 
-
+# ! Optimised
 def findMaxAverage_optimised(nums,k):
     n=len(nums)
     wsum=sum(nums[0:k])
@@ -1327,7 +1328,7 @@ For reamining window just 1 ele
 """
 
 
-# 1456. Maximum Number of Vowels in a Substring of Given Length
+# ! 1456. Maximum Number of Vowels in a Substring of Given Length
 
 def maxVowels(s,k):
     vowels="aeiou"
@@ -1353,3 +1354,32 @@ def maxVowels(s,k):
 s = "abciiidef"
 k = 3
 print(maxVowels(s,k))
+
+
+
+# ! 2379
+
+def minimumRecolors(self, s: str, k: int) -> int:
+    w_count=0
+    for i in range(0,k):
+        if s[i]=='W':
+            w_count+=1
+
+    min_w=w_count
+
+    for i in range(k,len(s)):
+        if s[i]=='W':
+            w_count+=1
+        if s[i-k]=='W':
+            w_count-=1
+
+        min_w=min(w_count,min_w)
+
+    return min_w
+
+
+s = "WBBWWBBWBW"
+k = 7
+print(minimumRecolors(s,k))
+        
+
