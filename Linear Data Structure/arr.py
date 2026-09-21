@@ -6,7 +6,6 @@ for i in reversed(arr):
 # print(arr==sorted(ans))
 
 
- 
 
 
 def algotutor(n):
@@ -120,60 +119,7 @@ for i in t:
 
 
 
-# ! Two sum leetcode 
 
-# Brute Force 
-def twosum(nums,target):
-    n=len(nums)
-    for i in range(0,n):
-        for  j in range(i+1,n):
-            s=nums[i]+nums[j]
-            if s==target:
-                return sorted([nums[i],nums[j]])
-
-def two_sum_optimized(nums,target):
-    seen={}
-    for i ,num in enumerate(nums):
-        com=target-num
-        if com in seen:
-            return [seen[com],i]
-        seen[num]=i
-
-            
-
-
-
-# nums=[2,7,11,15]
-nums=[7,-3,2,7,5,-3,10,0,2,8,5,-8,3,12,-3]
-target=9
-
-# print(twosum(nums,target))
-
-
-# ! Twu sum but differenet que
-
-
-def Two_sum_transaction(nums,target):
-    pair=set()
-    seen=set()
-
-
-    for i in nums:
-        com=target-i
-        if com in seen:
-       
-            pair.add(tuple(sorted([i, com])))
-            
-
-        seen.add(i)
-
-
-    return [list(p) for p in sorted(pair)]
-
-
-nums=[7,-3,2,7,5,-3,10,0,2,8,5,-8,3,12,-3]
-target=9
-print(Two_sum_transaction(nums,target))
 
 
 
@@ -419,10 +365,30 @@ for i in range(n-1):
 
 #! 2937 Make Three string equal
 
+def findMinimumOperations(s1,s2,s3):
+    N1, N2, N3 = len(s1), len(s2), len(s3)
+    N = min(N1, N2, N3)
+    finalLength = 0
+    for i in range(0, N):
+        if s1[i] == s2[i] and s2[i] == s3[i]:
+            finalLength += 1
+        else:
+            break
+
+    if finalLength == 0:
+        return -1
+
+    ans = N1 - finalLength
+    ans += N2 - finalLength
+    ans += N3 - finalLength
+
+    return ans
 
 
-
-
+s1 = "abc"
+s2 = "abb"
+s3 = "ab"
+print(findMinimumOperations(s1,s2,s3))
 
 
 
@@ -1383,3 +1349,4 @@ k = 7
 print(minimumRecolors(s,k))
         
 
+# ! 2461, 1423
