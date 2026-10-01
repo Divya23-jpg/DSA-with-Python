@@ -77,10 +77,30 @@ def sum_digit(n):
 
 # ! print array By Recursion
 
-def array_p(n):
-    if len(n)==0:
-        return 0
+def array_p(i,arr,n):
+    if i==n:
+        return 
+    
+    array_p(i+1,arr,n)
+    
+    print(arr[i],end=" ")
 
-    return n[0]+array_p(n)
+# array_p(0,[1,2,3,4],4)
 
-print(array_p([1,2,3,4]))
+
+
+def array_sort(i,arr,n):
+    if i==n-1:
+        return True
+
+    if arr[i]>arr[i+1]:
+        return False
+
+    return array_sort(i+1,arr,n)
+
+print(array_sort(0,[1,2,3,4],4))
+
+print(array_sort(0,[9,1,3,4],4))
+
+
+
