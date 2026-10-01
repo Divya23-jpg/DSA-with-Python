@@ -62,5 +62,25 @@ def fibo(n):
 
 
 
-print(fibo(1))
+# print(fibo(1))
 
+#! Sum of the digits
+
+def sum_digit(n):
+    if n==0:
+        return 0
+
+    return (n%10) + sum_digit(n//10)
+
+# print(sum_digit(1234))
+
+
+# ! print array By Recursion
+
+def array_p(n):
+    if len(n)==0:
+        return 0
+
+    return n[0]+array_p(n)
+
+print(array_p([1,2,3,4]))
