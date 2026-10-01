@@ -110,7 +110,6 @@ def max_num(i,arr,n):
 
     return max(arr[i],max_num(i+1,arr,n))
 
-print(max_num(0,[1,2,3,10,3,12],6))
+# print(max_num(0,[1,2,3,10,3,12],6))
 
-    
 
