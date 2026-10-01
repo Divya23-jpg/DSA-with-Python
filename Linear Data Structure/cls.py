@@ -87,7 +87,7 @@ def array_p(i,arr,n):
 
 # array_p(0,[1,2,3,4],4)
 
-
+# ! chexk Array is sorted or not
 
 def array_sort(i,arr,n):
     if i==n-1:
@@ -98,9 +98,19 @@ def array_sort(i,arr,n):
 
     return array_sort(i+1,arr,n)
 
-print(array_sort(0,[1,2,3,4],4))
+# print(array_sort(0,[1,2,3,4],4))
 
-print(array_sort(0,[9,1,3,4],4))
+# print(array_sort(0,[9,1,3,4],4))
 
 
+
+def max_num(i,arr,n):
+    if i==n-1:
+        return arr[i]
+
+    return max(arr[i],max_num(i+1,arr,n))
+
+print(max_num(0,[1,2,3,10,3,12],6))
+
+    
 
